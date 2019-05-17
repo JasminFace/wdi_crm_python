@@ -18,14 +18,14 @@ class Contact:
     """
     new_contact = Contact(first_name, last_name, email, note)
     cls.contacts.append(new_contact)
-
     Contact.next_id += 1
-
     return new_contact
 
   @classmethod
   def all(cls):
     """This method should return all of the existing contacts"""
+    
+    return Contact.contacts
 
   @classmethod
   def find(cls):
@@ -53,25 +53,33 @@ class Contact:
   @classmethod
   def delete_all(cls):
     """This method should delete all of the contacts"""
+    
+    Contact.contacts.clear()
 
 
   def full_name(self):
     """Returns the full (first and last) name of the contact"""
+    
+    return f"{self.first} {self.last}"
 
 
   def delete(self):
     """This method should delete the contact
     HINT: Check the Array class docs for built-in methods that might be useful here
     """
+    Contact.contacts.remove(self)
 
   # Feel free to add other methods here, if you need them.
 
 
-
 contact1 = Contact.create('Betty', 'Maker', 'bettymakes@bitmakerlabs.com', 'Loves Pokemon')
 contact2 = Contact.create('Bit', 'Bot', 'bitbot@bitmakerlabs.com', 'beep boop')
-
-print(len(Contact.contacts))
-
 print(contact1.id)
 print(contact2.id)
+
+
+print(Contact.all())
+
+contact1.delete()
+
+print(Contact.all())
