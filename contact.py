@@ -27,7 +27,7 @@ class Contact:
   @classmethod
   def all(cls):
     """This method should return all of the existing contacts"""
-    return cls.contacts
+    return Contact.contacts
 
   @classmethod
   def find(cls, id):
@@ -80,15 +80,12 @@ class Contact:
   # Feel free to add other methods here, if you need them.
 
 
+
+
 contact1 = Contact.create('Betty', 'Maker', 'bettymakes@bitmakerlabs.com', 'Loves Pokemon')
 contact2 = Contact.create('Bit', 'Bot', 'bitbot@bitmakerlabs.com', 'beep boop')
-print(contact1.id)
-print(contact2.id)
 
-print(contact1.update("first_name", "Bobby"))
 
-print([str(contact) for contact in Contact.contacts])
 
-# print(contact1)
-# print(contact2)
 
+# print([str(contact) for contact in Contact.contacts])
