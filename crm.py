@@ -56,27 +56,29 @@ class CRM:
   def modify_existing_contact(self):
     print("Which contact would you like to modify? (Please enter ID)")
     id = input()
-    contact = Contact.find(int(id))
+    contact = Contact.get(id=id)
     
     print("Which attribute would you like to modify?")
     attr = input()
     
     print("What would you like to update it to?")
     value = input()
-    contact.update(attr, value)
+
+    contact = Contact()
+    contact.save()
   
   def delete_contact(self):
     
     print("Which contact would you like to delete? (Please enter ID)")
     id = input()
     
-    contact = Contact.find(int(id))
-    contact.delete()
+    contact = Contact.get(id=id)
+    contact.delete_instance()
 
   def display_all_contacts(self):
-    contacts = Contact.all()
+    contacts = Contact.select()
     for contact in contacts:
-      print(f"• {contact}")
+      print(f"• {contact.full_name()}")
   
   def search_by_attribute(self):
 
@@ -86,7 +88,7 @@ class CRM:
     print("What is the term you would like to search?")
     value = input()
     
-    result = Contact.find_by(attribute, value)
+    result = Contact.get(attribute, value)
     print("Here's who we found:" + "\n" + f"{result}")
 
 

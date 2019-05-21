@@ -17,16 +17,3 @@ class Contact(Model):
  
 db.connect()
 db.create_tables([Contact])
-
-# contact1 = Contact.create(
-#   first_name = "Betty", 
-#   last_name = "Maker", 
-#   email = "bettymakes@bitmakerlabs.com", 
-#   note = "Loves Pokemon"
-#   )
-# contact2 = Contact.create(
-#   first_name = "Bit",
-#   last_name = "Bot",
-#   email = "bitbot@bitmakerlabs.com", 
-#   note = "beep boop"
-# )
